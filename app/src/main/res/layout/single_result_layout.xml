@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:minHeight="140dp"
+            android:maxHeight="140dp"
+            android:id="@+id/preview_image_field"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"/>
+
+        <ProgressBar
+            android:id="@+id/image_loader_progress_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/theme_purple"/>
+
+        <TextView
+            android:id="@+id/track_price_country_field"
+            android:text="0.99 USD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:id="@+id/title_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="An Idiot Abroad, Season 1"/>
+
+        <TextView
+            android:textColor="@color/black"
+            android:text="By An Idiot Abroad"
+            android:textSize="12sp"
+            android:id="@+id/artist_name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

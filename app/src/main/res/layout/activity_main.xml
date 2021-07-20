@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/musik_main_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Musik"
+        android:layout_centerInParent="true"
+        android:textSize="36sp"
+        android:textColor="@color/theme_purple"/>
+
+    <TextView
+        android:layout_below="@id/musik_main_logo"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/theme_purple"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="A better place to listen audio"/>
+
+</RelativeLayout>

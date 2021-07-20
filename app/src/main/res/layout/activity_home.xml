@@ -9,13 +9,13 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/top_view"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="64dp"
         app:cardElevation="12dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <EditText
                 android:textColorHint="#C67E57C2"
@@ -28,16 +28,20 @@
                 android:maxLines="1"
                 android:id="@+id/search_field"
                 android:layout_width="match_parent"
-                android:layout_height="52dp" />
+                android:layout_weight="1"
+                android:layout_height="64dp" />
 
             <ImageView
-                android:padding="12dp"
+                android:id="@+id/search_button"
+                android:visibility="visible"
+                android:paddingLeft="24dp"
+                android:paddingEnd="24dp"
                 android:layout_alignParentEnd="true"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_baseline_search_24"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

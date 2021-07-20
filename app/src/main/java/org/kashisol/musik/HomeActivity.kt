@@ -6,6 +6,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +39,7 @@ class HomeActivity : AppCompatActivity(), LocalDB.OnLocalDBResult {
     private lateinit var search_field: EditText
     private lateinit var result_recycler_view: RecyclerView
     private lateinit var searching_progress_field: ProgressBar
+    private lateinit var search_button: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,16 +48,13 @@ class HomeActivity : AppCompatActivity(), LocalDB.OnLocalDBResult {
         // initializing the non-ui elements
         searchResultsList = ArrayList()
         iTunesResultAdapter = ITuneResultAdapter(searchResultsList, applicationContext)
-
+        LocalDB.initializeDB(applicationContext, this)
 
         // initializing the widgets
         search_field = findViewById(R.id.search_field)
         result_recycler_view = findViewById(R.id.result_recycler_view)
         searching_progress_field = findViewById(R.id.searching_progress_field)
-
-        // TODO experimental features
-        LocalDB.initializeDB(applicationContext, this)
-//        LocalDB.search("india", 3)
+        search_button = findViewById(R.id.search_button)
 
         // setting up the key listener on search field so that whenever the user performs an action
         // of entering the term/value in the field, the searching process must start all over again.
@@ -65,7 +64,7 @@ class HomeActivity : AppCompatActivity(), LocalDB.OnLocalDBResult {
                 if (search_field.text.toString().isEmpty()) {
                     // hide the keyboard
                     hideKeyboard(this@HomeActivity)
-                    Toast.makeText(applicationContext, "Please enter value to search", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(result_recycler_view, "Please enter value to search", 1000).show()
                     return@setOnKeyListener false
                 }
                 // whenever a successful search is started, show the progress bar
@@ -78,6 +77,21 @@ class HomeActivity : AppCompatActivity(), LocalDB.OnLocalDBResult {
                 false
             }
         }
+
+        search_button.setOnClickListener(View.OnClickListener { v ->
+            // if the input is null or empty, then show toast with message
+            if (search_field.text.toString().isEmpty()) {
+                // hide the keyboard
+                hideKeyboard(this@HomeActivity)
+                Snackbar.make(v, "Please enter value to search", 1000).show()
+                return@OnClickListener
+            }
+            // whenever a successful search is started, show the progress bar
+            searching_progress_field.visibility = View.VISIBLE
+            // hide the keyboard
+            hideKeyboard(this@HomeActivity)
+            searchAndShow(search_field.text.toString().trim())
+        })
 
         // Setting up the layout manager and adapter on recycler view
         val gridLayoutManager = GridLayoutManager(applicationContext, 3)

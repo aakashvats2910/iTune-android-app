@@ -256,4 +256,8 @@ class HomeActivity : AppCompatActivity(), LocalDB.OnLocalDBResult {
     override fun onInserted(id: Int) {
         // nothing to do at all till now
     }
+
+    override fun onBackPressed() {
+        finishAffinity()
+    }
 }

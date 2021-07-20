@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         // make the splash screen appear for 500ms
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this@MainActivity, HomeActivity::class.java))
-        }, 1000)
+        }, 500)
 
     }
 }

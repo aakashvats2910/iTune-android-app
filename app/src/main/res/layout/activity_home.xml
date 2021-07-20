@@ -12,24 +12,32 @@
         android:layout_height="52dp"
         app:cardElevation="12dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <EditText
+                android:textColorHint="#C67E57C2"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:hint="Search"
+                android:paddingEnd="48dp"
+                android:hint="Search iTune"
                 android:background="@drawable/border_background"
                 android:inputType="text"
                 android:singleLine="true"
                 android:maxLines="1"
                 android:id="@+id/search_field"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"/>
+                android:layout_height="52dp" />
 
-        </LinearLayout>
+            <ImageView
+                android:padding="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_search_24"/>
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
